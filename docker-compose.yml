@@ -7,6 +7,8 @@ services:
       dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./src/:/var/www/html
+    ports:
+      - '3000:3000'
     depends_on:
       - db
 
@@ -37,7 +39,7 @@ services:
       - ./data:/var/lib/mysql
 
 # ----------------------------------
-# phpMyAdminを動かすコンテナ
+# phpMyAdmin
 # ----------------------------------
   phpmyadmin:
     # Docker Hubからイメージをダウンロード
@@ -56,8 +58,16 @@ services:
 
     # localhost:9000 で phpmyadmin の管理画面にアクセス。9000がすでに使われていたら、9001(localhost:9001で接続可)とか別の番号で対応すれば、OK
     ports:
-      - 3000:80
+      - 9000:80
 
     # セッション情報をボリュームに設定して永続化
     volumes:
       - ./docker/phpmyadmin/sessions:/sessions
+  
+# ----------------------------------
+# mailhog
+# ----------------------------------
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - 8025:8025
