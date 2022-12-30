@@ -29,7 +29,6 @@ class ThreadService
             throw $error;
         }
         DB::commit();
-
         return $thread;
     }
 
@@ -43,10 +42,29 @@ class ThreadService
         ];
     }
 
-    public function getThreads(int $per_page)
+    //いいね数順にそｑされたanswersと共にPaginatedThreadsを取得
+    public function getThreadsWithAnswers(int $per_page)
     {
-        $threads = $this->thread_repository->getPaginatedThreads($per_page);
-        $threads->load('answers');
+        $threads = $this->thread_repository->getPaginatedThreadsWithAnswers($per_page);
         return $threads;
+    }
+
+    public function getThreadWithAnswers(int $thread_id)
+    {
+        $thread = $this->thread_repository->getThreadWithAnswers($thread_id);
+        return $thread;
+    }
+
+    public function updateThread(int $thread_id, string $body)
+    {
+        DB::beginTransaction();
+        try{
+            $this->thread_repository->update($thread_id, $body);
+        } catch (Throwable $error){
+            DB::rollback();
+            info($error->getMessage());
+            throw $error;
+        }
+        DB::commit();
     }
 }

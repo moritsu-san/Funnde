@@ -8,8 +8,8 @@ use App\Services\ThreadService;
 use App\Repositories\ThreadRepository;
 use Illuminate\Support\Facades\Auth;
 use Throwable;
-
 use App\Http\Controllers\Controller;
+use App\Models\Thread;
 
 class ThreadController extends Controller
 {
@@ -34,7 +34,7 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        $threads = $this->thread_service->getThreads(3);
+        $threads = $this->thread_service->getThreads(10);
         return view('threads.index', compact('threads'));
     }
 
@@ -57,9 +57,9 @@ class ThreadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Thread $thread)
     {
-        //
+        return view('threads.edit', ['thread' => $thread]);
     }
 
     /**

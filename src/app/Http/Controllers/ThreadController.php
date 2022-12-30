@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Thread;
 use App\Http\Requests\ThreadRequest;
 use App\Services\ThreadService;
 use App\Repositories\ThreadRepository;
@@ -25,6 +26,7 @@ class ThreadController extends Controller
     )
     {
         $this->middleware('auth')->except('index');
+        $this->authorizeResource(Thread::class, 'thread');
         $this->thread_service = $thread_service;
         $this->thread_repository = $thread_repository;
         $this->slack_notification_service = $slack_notification_service;
@@ -35,11 +37,12 @@ class ThreadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $threads = $this->thread_service->getThreads(10);
-        return view('threads.index', compact('threads'));
-    }
+    // public function index()
+    // {
+    //     $threads = $this->thread_service->getThreadsWithAnswers(10);
+    //     // dd($threads);
+    //     return view('threads.index', compact('threads'));
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -54,14 +57,20 @@ class ThreadController extends Controller
             $data['name'] = Auth::user()->name;
             $data['user_id'] = Auth::id();
 
-            $this->thread_service->createNewThread(Auth::id(), $data);
+            $thread = $this->thread_service->createNewThread(Auth::id(), $data);
             $this->slack_notification_service->send(Auth::user()->name. 'がお題として"' . $request->body . '"を投稿しました。');
         } catch (Throwable $error) {
-            return redirect()->route('threads.index')->with('error', 'お題の投稿に失敗しました...');
+            return redirect()->route('threads.show', $thread->id)->with('error', 'お題の投稿に失敗しました...');
         }
 
-        return redirect()->route('threads.index')->with('success', 'お題を投稿しました!');
+        return redirect()->route('threads.show', $thread->id)->with('success', 'お題を投稿しました!');
     }
+
+    public function create()
+    {
+        return view('threads.create');
+    }
+
 
     /**
      * Display the specified resource.
@@ -69,10 +78,10 @@ class ThreadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Thread $thread)
     {
-        $thread = $this->thread_repository->findById($id);
-        $thread->load('answers');
+        $thread = $this->thread_service->getThreadWithAnswers($thread->id);
+
         return view('threads.show', compact('thread'));
     }
 
@@ -82,11 +91,10 @@ class ThreadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Thread $thread)
     {
-        //
+        return view('threads.edit', ['thread' => $thread]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -94,9 +102,15 @@ class ThreadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Threadrequest $request, Thread $thread)
     {
-        //
+        try{
+            $this->thread_service->updateThread($thread->id, $request->body);
+            $this->slack_notification_service->send(Auth::user()->name. 'がお題を"' . $request->body . '"に更新しました。');
+        } catch (Throwable $error) {
+            return redirect()->route('threads.show', $thread->id)->with('error', 'お題の編集に失敗しました...');
+        }
+        return redirect()->route('threads.show', $thread->id)->with('success', '編集に成功しました!');
     }
 
     /**
@@ -105,8 +119,13 @@ class ThreadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Thread $thread)
     {
-        //
+        try {
+            $this->thread_repository->deleteThread($thread->id);
+        } catch (Throwable $error) {
+            return redirect()->route('answer.recent')->with('error', 'お題の削除に失敗しました...');
+        }
+        return redirect()->route('answer.recent')->with('success', 'お題を削除しました!');
     }
 }

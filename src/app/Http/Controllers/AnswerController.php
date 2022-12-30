@@ -6,6 +6,7 @@ use App\Http\Requests\AnswerRequest;
 use App\Services\AnswerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Answer;
 use Throwable;
 
 class AnswerController extends Controller
@@ -80,5 +81,27 @@ class AnswerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function like(Request $request, Answer $answer)
+    {
+        $answer->likes()->detach($request->user()->id);
+        $answer->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $answer->id,
+            'countLikes' => $answer->count_likes,
+        ];
+
+    }
+
+    public function unlike(Request $request, Answer $answer)
+    {
+        $answer->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $answer->id,
+            'countLikes' => $answer->count_likes,
+        ];
     }
 }

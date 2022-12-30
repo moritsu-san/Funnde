@@ -1,14 +1,12 @@
 require('./bootstrap');
 
+import { create } from 'lodash';
+
 import { createApp } from 'vue';
-import TestComponent from './components/TestComponent.vue';
+import LikeComponent from './components/LikeComponent.vue';
 
-// window.createApp = createApp;
-// window.HelloComponent = require('./components/Hello.vue').default;
+const app = createApp({})
 
-createApp({
-    components:{
-        TestComponent
-    }
-}).mount('#app')
+app.component('like-component', LikeComponent);
+app.mount('#app')
 

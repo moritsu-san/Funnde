@@ -1,25 +1,67 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center mt-1">
-            <div class="col-md-12">
-                <div>
-                    <button>
-                        いいね解除
-                    </button>
-                    <button>
-                        いいね
-                    </button>
-                    <p>いいね数：</p>
-                </div>
-            </div>
-        </div>
+    <div>
+      <button
+        type="button"
+        class=""
+      >
+        <i class="fa-solid fa-heart"
+           :class="[this.isLikedBy ? 'heart-on' : 'heart-off']"
+           @click="clickLike"
+        >
+        </i>
+      </button>
+      {{ countLikes }}
     </div>
-</template>
-<script>
+  </template>
+
+  <script>
+
     export default {
-        props: ['answer'],
-        mounted() {
-            console.log('this.answer')
+      props: {
+        initialIsLikedBy: {
+          type: Boolean,
+          default: false,
+        },
+        initialCountLikes: {
+          type: Number,
+          default: 0,
+        },
+        authorized: {
+          type: Boolean,
+          default: false,
+        },
+        endpoint: {
+          type: String,
+        },
+      },
+      data() {
+        return {
+          isLikedBy: this.initialIsLikedBy,
+          countLikes: this.initialCountLikes,
         }
+      },
+      methods: {
+        clickLike() {
+          if (!this.authorized) {
+            alert('いいね機能はログイン中のみ使用できます')
+            return
+          }
+
+          this.isLikedBy
+            ? this.unlike()
+            : this.like()
+        },
+        async like() {
+          const response = await axios.put(this.endpoint)
+          this.isLikedBy = true
+          this.countLikes = response.data.countLikes
+        },
+        async unlike() {
+          const response = await axios.delete(this.endpoint)
+
+          this.isLikedBy = false
+          this.countLikes = response.data.countLikes
+        },
+      },
     }
-</script>
+  </script>
