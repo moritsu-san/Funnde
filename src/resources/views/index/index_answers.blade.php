@@ -4,8 +4,8 @@
 
 @section('content')
 @inject('answer_service', 'App\Services\AnswerService')
-<div class="container mx-auto">
-    <div id="header-news">
+<div  id="container" class="container mx-auto px-4">
+    <div id="header-news" class="mt-6 ">
         @include('components.flash-message')
     </div>
     <div id="main-board" class="flex">

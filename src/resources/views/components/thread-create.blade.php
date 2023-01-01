@@ -1,5 +1,5 @@
 <!-- Modal toggle -->
-<a class="block cursor-pointer py-1 pr-4 text-white rounded hover:text-gray-300 transition-colors text-sm" data-modal-toggle="thread-create-modal"><i class="fas fa-pen mr-1"></i>お題を投稿</a>
+<a class="block cursor-pointer px-2 py-3 mr-6 text-white rounded hover:text-gray-300 transition-colors text-sm" data-modal-toggle="thread-create-modal"><i class="fas fa-pen mr-1"></i>お題を投稿</a>
 
 <!-- Main modal -->
 <div id="thread-create-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">

@@ -25,11 +25,12 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
     {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 </head>
-<body style="background-color: rgb(235, 232, 232)">
+<body style="background-color: rgb(175, 204, 132)">
     <div id="app">
         @include('components.nav')
-        @yield('content')
-    <script src="/js/main.js"></script>
+        <div id='wrapper' class="max-w-5xl pt-6 mx-auto bg-gray-400">
+            @yield('content')
+        </div>
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </div>

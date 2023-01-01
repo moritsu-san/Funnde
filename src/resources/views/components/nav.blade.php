@@ -1,5 +1,5 @@
-<nav class="bg-black border-gray-200 px-2 mb-11 py-2 dark:bg-gray-900">
-    <div class="container flex flex-wrap items-center mx-auto">
+<nav class="bg-black border-gray-200 px-2 dark:bg-gray-900">
+    <div class="max-w-5xl flex flex-wrap items-center mx-auto">
         <a class="navbar-brand text-xl text-white hover:text-gray-300 transition-colors" href="{{ route('answer.recent') }}">
             <i class="fa-solid fa-microphone-lines"></i>
             {{ config('app.name') }}
@@ -29,10 +29,10 @@
 
             {{-- nav menu start --}}
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 md:ml-6 " id="navbar-cta">
-                <ul class="flex flex-col mt-2 p-2 border border-gray-100 rounded-lg bg-black md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0">
-                    <li><a href="{{ route('answer.recent') }}" target="_self" class="block cursor-pointer py-1 pr-6 text-white rounded hover:text-gray-300 transition-colors text-sm">アンサー</a></li>
-                    <li><a href="{{ route('odai.recent') }}" target="_self" class="block cursor-pointer py-1 pr-6 text-white rounded hover:text-gray-300 transition-colors text-sm">お題</a></li>
-                    <li><a href="" target="_self" class="block cursor-pointer py-1 pr-6 text-white rounded hover:text-gray-300 transition-colors text-sm">MC</a></li>
+                <ul class="flex flex-col mt-2 border border-gray-100 rounded-lg bg-black md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0">
+                    <li><a href="{{ route('answer.recent') }}" target="_self" class="{{ url()->current() == route('answer.recent') ? 'bg-gray-400' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">アンサー</a></li>
+                    <li><a href="{{ route('odai.recent') }}" target="_self" class="{{ url()->current() == route('odai.recent') ? 'bg-gray-600' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">お題</a></li>
+                    <li><a href="" target="_self" class="{{ url()->current() == route('odai.recent') ? 'bg-gray-600' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">MC</a></li>
                 </ul>
             </div>
             {{-- nav menu end --}}
@@ -75,10 +75,10 @@
 
             {{-- nav menu start --}}
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 md:ml-6 " id="mobile-menu-2">
-                <ul class="flex flex-col mt-2 p-2 border border-gray-100 rounded-lg bg-black md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0">
-                    <li><a href="{{ route('answer.recent') }}" target="_self" class="block cursor-pointer py-1 pr-6 text-white rounded hover:text-gray-300 transition-colors text-sm">アンサー</a></li>
-                    <li><a href="{{ route('odai.recent') }}" target="_self" class="block cursor-pointer py-1 pr-6 text-white rounded hover:text-gray-300 transition-colors text-sm">お題</a></li>
-                    <li><a href="" target="_self" class="block cursor-pointer py-1 pr-6 text-white rounded hover:text-gray-300 transition-colors text-sm">MC</a></li>
+                <ul class="flex flex-col mt-2 border border-gray-100 rounded-lg bg-black md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0">
+                    <li><a href="{{ route('answer.recent') }}" target="_self" class="{{ url()->current() == route('answer.recent') ? 'bg-gray-400' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">アンサー</a></li>
+                    <li><a href="{{ route('odai.recent') }}" target="_self" class="{{ url()->current() == route('odai.recent') ? 'bg-gray-600' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">お題</a></li>
+                    <li><a href="" target="_self" class="{{ url()->current() == route('odai.recent') ? 'bg-gray-600' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">MC</a></li>
                     <li>
                         @include("components.thread-create")
                     </li>

@@ -25,7 +25,19 @@ class IndexController extends Controller
         $this->thread_repository = $thread_repository;
     }
 
-    public function index_answers()
+    public function index_answers(Request $request)
+    {   
+        $path = $request->path();
+        if ($path == 'answer/recent' || $path == '/') {
+            $threads = $this->thread_service->getThreadsWithAnswers(10);
+            return view('index.index_answers', compact('threads'));
+        } elseif ($path == 'answer/popular') {
+            $threads = $this->thread_service->getThreadsWithAnswers(10);
+            return view('index.index_answers', compact('threads'));
+        }
+    }
+
+    public function index_()
     {
         $threads = $this->thread_service->getThreadsWithAnswers(10);
         return view('index.index_answers', compact('threads'));
