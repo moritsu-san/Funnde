@@ -9,7 +9,7 @@
         @include('components.flash-message')
     </div>
     <div id="main-board" class="flex">
-        <div id="main-container" class="w-2/3 mr-10 row justify-content-center">
+        <div id="main-container" class= "w-2/3 mr-10 row justify-content-center">
             <div class="content-menu">
                 <ul class="flex">
                     <li class="mr-6">
@@ -20,7 +20,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="content">
+            <div id="content" class="bg-white p-4 border-2 border-purple-400 rounded">
                 @foreach ($threads as $thread)
                     @include('components.thread-card')
                 @endforeach
