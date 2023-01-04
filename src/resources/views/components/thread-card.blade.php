@@ -1,4 +1,4 @@
-<div class="pt-6 pb-3 px-3 mx-auto my-4 text-center bg-white border border-purple-200 relative rounded-lg shadow-md">
+<div class="pt-6 pb-3 px-3 mx-auto my-4 text-center bg-purple-100 border border-purple-200 relative rounded-lg shadow-md">
     @include('components.thread-options')
     <a href="{{ route('threads.show', $thread->id) }}" class="pb-2 block border-b border-purple-300">
         <h3 class="mb-2 text-3xl font-bold tracking-tight text-gray-900">「{!! $answer_service->convertUrl($thread->body) !!}」</h3>

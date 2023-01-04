@@ -27,11 +27,12 @@
 </head>
 <body>
     <div id="particles-js"></div>
-    <div id="app">
+    <div id="app" class="">
         @include('components.nav')
-        <div id='wrapper' class="max-w-5xl pt-6 mx-auto bg-purple-500 bg-opacity-50">
+        <div id='wrapper' class="h-fit max-w-5xl py-6 mx-auto bg-purple-500 bg-opacity-50">
             @yield('content')
         </div>
+        @include('components.footer')
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </div>

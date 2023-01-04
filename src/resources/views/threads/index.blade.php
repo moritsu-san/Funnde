@@ -11,16 +11,9 @@
     <div id="main-board" class="flex">
         <div id="main-container" class= "w-2/3 mr-10 row justify-content-center">
             <div class="content-menu">
-                <ul class="flex">
-                    <li class="mr-6">
-                        <a href="{{ route('answer.recent') }}" target="_self">新着</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('answer.popular') }}" target="_self">人気</a>
-                    </li>
-                </ul>
+                @include('components.content-menu')
             </div>
-            <div id="content" class="bg-white p-4 border-2 border-purple-400 rounded">
+            <div id="content" class="{{ url()->current() == route('answer.recent') || url()->current() == route('root') ? 'rounded-tr rounded-br rounded-bl' : 'rounded' }} bg-white p-4">
                 @foreach ($threads as $thread)
                     @include('components.thread-card')
                 @endforeach

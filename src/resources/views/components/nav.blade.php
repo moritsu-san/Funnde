@@ -1,6 +1,6 @@
 <nav class="bg-black border-gray-200 px-2 dark:bg-gray-900">
     <div class="max-w-5xl flex flex-wrap items-center mx-auto">
-        <a class="navbar-brand text-xl text-white hover:text-gray-300 transition-colors" href="{{ route('answer.recent') }}">
+        <a class="navbar-brand my-2 text-xl text-white hover:text-gray-300 transition-colors" href="{{ route('answer.recent') }}">
             <i class="fa-solid fa-microphone-lines"></i>
             {{ config('app.name') }}
         </a>
@@ -10,13 +10,13 @@
                 <ul id="nav-right" class="flex items-center">
                     @if (Route::has('login'))
                     <li>
-                        <a href="{{ route('login') }}" class="block cursor-pointer py-0 pr-2 text-white rounded hover:text-gray-300 transition-colors text-sm">{{ __('form.login.name') }}</a>
+                        <a href="{{ route('login') }}" class="block cursor-pointer py-2 px-4 mr-2 bg-orange-500 hover:bg-orange-600 text-white rounded hover:text-gray-300 transition-colors text-sm">{{ __('form.login.name') }}</a>
                     </li>
                     @endif
 
                     @if (Route::has('register'))
                     <li>
-                        <a href="{{ route('register') }}" class="block cursor-pointer py-0 pr-4 text-white rounded hover:text-gray-300 transition-colors text-sm">{{ __('form.register.name') }}</a>
+                        <a href="{{ route('register') }}" class="block cursor-pointer py-2 px-4 mr-4 md:mr-0 bg-orange-500 hover:bg-orange-600 text-white rounded hover:text-gray-300 transition-colors text-sm">{{ __('form.register.name') }}</a>
                     </li>
                     @endif
                 </ul>
@@ -29,10 +29,10 @@
 
             {{-- nav menu start --}}
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 md:ml-6 " id="navbar-cta">
-                <ul class="flex flex-col mt-2 border border-gray-100 rounded-lg bg-black md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0">
-                    <li><a href="{{ route('answer.recent') }}" target="_self" class="{{ url()->current() == route('answer.recent') ? 'bg-gray-400' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">アンサー</a></li>
-                    <li><a href="{{ route('odai.recent') }}" target="_self" class="{{ url()->current() == route('odai.recent') ? 'bg-gray-600' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">お題</a></li>
-                    <li><a href="" target="_self" class="{{ url()->current() == route('odai.recent') ? 'bg-gray-600' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">MC</a></li>
+                <ul class="flex flex-col border border-gray-100 rounded-lg bg-black md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0">
+                    <li><a href="{{ route('answer.recent') }}" target="_self" class="{{ url()->current() == route('answer.recent') || url()->current() == route('answer.popular') || url()->current() == route('root') ? 'bg-purple-500' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">アンサー</a></li>
+                    <li><a href="{{ route('odai.recent') }}" target="_self" class="{{ url()->current() == route('odai.recent') || url()->current() == route('odai.popular') ? 'bg-purple-500' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">お題</a></li>
+                    <li><a href="{{ route('MC.recent') }}" target="_self" class="{{ url()->current() == route('MC.recent') ? 'bg-purple-500' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">MC</a></li>
                 </ul>
             </div>
             {{-- nav menu end --}}
@@ -75,13 +75,11 @@
 
             {{-- nav menu start --}}
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 md:ml-6 " id="mobile-menu-2">
-                <ul class="flex flex-col mt-2 border border-gray-100 rounded-lg bg-black md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0">
-                    <li><a href="{{ route('answer.recent') }}" target="_self" class="{{ url()->current() == route('answer.recent') ? 'bg-gray-400' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">アンサー</a></li>
-                    <li><a href="{{ route('odai.recent') }}" target="_self" class="{{ url()->current() == route('odai.recent') ? 'bg-gray-600' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">お題</a></li>
-                    <li><a href="" target="_self" class="{{ url()->current() == route('odai.recent') ? 'bg-gray-600' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">MC</a></li>
-                    <li>
-                        @include("components.thread-create")
-                    </li>
+                <ul class="flex flex-col border border-gray-100 rounded-lg bg-black md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0">
+                    <li><a href="{{ route('answer.recent') }}" target="_self" class="{{ url()->current() == route('answer.recent') || url()->current() == route('answer.popular') || url()->current() == route('root') ? 'bg-purple-500' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">アンサー</a></li>
+                    <li><a href="{{ route('odai.recent') }}" target="_self" class="{{ url()->current() == route('odai.recent') || url()->current() == route('odai.popular') ? 'bg-purple-500' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">お題</a></li>
+                    <li><a href="{{ route('MC.recent') }}" target="_self" class="{{ url()->current() == route('MC.recent') ? 'bg-purple-500' : 'bg-black' }} block cursor-pointer px-2 py-3 mr-6 text-white hover:text-gray-300 transition-colors text-sm">MC</a></li>
+                    <li> @include("components.thread-create") </li>
                 </ul>
             </div>
             {{-- nav menu end --}}

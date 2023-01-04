@@ -23,21 +23,25 @@ use Illuminate\Support\Facades\Auth;
 
 
 //index
-Route::get('/', [IndexController::class, 'index_answers']);
+Route::get('/', [IndexController::class, 'index_answers'])->name('root');
 
  //answer
 Route::group(['prefix' => 'answer', 'as' => 'answer.'], function() {
     Route::get('/recent', [IndexController::class, 'index_answers'])->name('recent');
-    Route::get('/popular', [IndexController::class, 'showLoginForm'])->name('popular');
+    Route::get('/popular', [IndexController::class, 'index_answers'])->name('popular');
 });
 
  //odai
 Route::group(['prefix' => 'odai', 'as' => 'odai.'], function() {
     Route::get('/recent', [IndexController::class, 'index_themes'])->name('recent');
-    Route::get('/popular', [IndexController::class, 'showLoginForm'])->name('popular');
+    Route::get('/popular', [IndexController::class, 'index_themes'])->name('popular');
 });
 
  //MC
+Route::group(['prefix' => 'MC', 'as' => 'MC.'], function() {
+    Route::get('/recent', [IndexController::class, 'index_MCs'])->name('recent');
+    Route::get('/popular', [IndexController::class, 'index_MCs'])->name('popular');
+});
 
 
 //process

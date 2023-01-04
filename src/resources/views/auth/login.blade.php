@@ -40,18 +40,18 @@
                     <div class="flex items-center justify-between">
                         {{-- ログイン情報を保持 --}}
                         <div class="flex items-center">
-                            <input id="remember-me" name="remember-me" type="checkbox" placeholder="Your password" class="w-4 h-4 text-blue-600 border-gray-200 rounded focus:ring-blue-500" {{ old('remember') ? 'checked' : '' }}>
+                            <input id="remember-me" name="remember-me" type="checkbox" placeholder="Your password" class="w-4 h-4 text-purple-600 border-gray-200 rounded focus:ring-purple-500" {{ old('remember') ? 'checked' : '' }}>
                             <label for="remember-me" class="block ml-2 text-sm text-neutral-600"> ログイン情報を保持する </label>
                         </div>
 
                         {{-- パスワードを忘れた方 --}}
                         <div class="text-sm">
-                            <a href="{{ route('password.request') }}" class="font-medium text-blue-600 hover:text-blue-500">パスワードを忘れた方</a>
+                            <a href="{{ route('password.request') }}" class="font-medium text-lime-600 hover:text-lime-700">パスワードを忘れた方</a>
                         </div>
                     </div>
 
                     <div>
-                        <button type="submit" class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">ログイン</button>
+                        <button type="submit" class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-purple-600 rounded-xl hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">ログイン</button>
                     </div>
                 </form>
 

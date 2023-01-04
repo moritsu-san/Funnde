@@ -30,23 +30,34 @@ class IndexController extends Controller
         $path = $request->path();
         if ($path == 'answer/recent' || $path == '/') {
             $threads = $this->thread_service->getThreadsWithAnswers(10);
-            return view('index.index_answers', compact('threads'));
+            return view('threads.index', compact('threads'));
         } elseif ($path == 'answer/popular') {
             $threads = $this->thread_service->getThreadsWithAnswers(10);
-            return view('index.index_answers', compact('threads'));
+            return view('threads.index', compact('threads'));
         }
     }
 
-    public function index_()
+    public function index_themes(Request $request)
     {
-        $threads = $this->thread_service->getThreadsWithAnswers(10);
-        return view('index.index_answers', compact('threads'));
+        $path = $request->path();
+        if ($path == 'odai/recent') {
+            $threads = $this->thread_service->getThreadsWithAnswers(10);
+            return view('threads.index', compact('threads'));
+        } elseif ($path == 'odai/popular') {
+            $threads = $this->thread_service->getThreadsWithAnswers(10);
+            return view('threads.index', compact('threads'));
+        }
     }
 
-    public function index_themes()
+    public function index_MCs(Request $request)
     {
-        $threads = $this->thread_service->getThreadsWithAnswers(10);
-        // dd($threads);
-        return view('index.index_themes', compact('threads'));
+        $path = $request->path();
+        if ($path == 'MC/recent') {
+            $threads = $this->thread_service->getThreadsWithAnswers(10);
+            return view('threads.index', compact('threads'));
+        } elseif ($path == 'MC/popular') {
+            $threads = $this->thread_service->getThreadsWithAnswers(10);
+            return view('threads.index', compact('threads'));
+        }
     }
 }
