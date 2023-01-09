@@ -1,4 +1,3 @@
-const { js } = require('laravel-mix');
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
 
@@ -13,8 +12,8 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
-    .js('resources/js/particle.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/main.js', 'public/js').vue()
     .postCss('resources/css/app.css', 'public/css', [
         // require('postcss-import'),
         require('tailwindcss'),
@@ -31,3 +30,4 @@ mix.js('resources/js/app.js', 'public/js').vue()
     })
     .version();
 
+    
