@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'api'], function(){
-    Route::get('/post', [PostController::class, 'post']);
+    Route::get('post', [PostController::class, 'post']);
 });
