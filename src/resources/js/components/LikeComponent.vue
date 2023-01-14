@@ -1,67 +1,60 @@
-<template>
-    <div>
-      <button
-        type="button"
-        class=""
-      >
-        <i class="fa-solid fa-heart"
-           :class="[this.isLikedBy ? 'heart-on' : 'heart-off']"
-           @click="clickLike"
-        >
-        </i>
-      </button>
-      {{ countLikes }}
-    </div>
-  </template>
+<script setup>
+  import { reactive } from 'vue'
 
-  <script>
+  const { initialIsLikedBy, initialCountLikes, authorized, endpoint } = defineProps({
+    initialIsLikedBy: {
+        type: Boolean,
+        default: false,
+    },
 
-    export default {
-      props: {
-        initialIsLikedBy: {
-          type: Boolean,
-          default: false,
-        },
-        initialCountLikes: {
-          type: Number,
-          default: 0,
-        },
-        authorized: {
-          type: Boolean,
-          default: false,
-        },
-        endpoint: {
-          type: String,
-        },
-      },
-      data() {
-        return {
-          isLikedBy: this.initialIsLikedBy,
-          countLikes: this.initialCountLikes,
-        }
-      },
-      methods: {
-        clickLike() {
-          if (!this.authorized) {
-            alert('いいね機能はログイン中のみ使用できます')
-            return
-          }
+    initialCountLikes: {
+      type: Number,
+      default: 0,
+    },
 
-          this.isLikedBy
-            ? this.unlike()
-            : this.like()
-        },
-        async like() {
-          const response = await axios.put(this.endpoint)
-          this.isLikedBy = true
-          this.countLikes = response.data.countLikes
-        },
-        async unlike() {
-          const response = await axios.delete(this.endpoint)
+    authorized: {
+      type: Boolean,
+      default: false,
+    },
 
-          this.isLikedBy = false
-          this.countLikes = response.data.countLikes
-        },
-      },
+    endpoint: {
+      type: String,
+    },
+  });
+
+  const state = reactive({
+    countLikes: initialCountLikes,
+    isLikedBy: initialIsLikedBy
+  });
+
+  const like = async() => {
+    const res = await axios.put(endpoint);
+    state.isLikedBy = true;
+    state.countLikes = res.data.countLikes;
+  };
+
+  const unlike = async() => {
+    const res = await axios.delete(endpoint);
+    state.isLikedBy = false;
+    state.countLikes = res.data.countLikes;
+  };
+
+  const handleClick = () => {
+    if (!authorized) {
+        alert('いいね機能はログイン中のみ使用できます')
+        return
     }
-  </script>
+
+    state.isLikedBy
+      ? unlike()
+      : like()
+  };
+</script>
+
+<template>
+  <button type="button" class="" >
+    <i class="fa-solid fa-heart" :class="[state.isLikedBy ? 'heart-on' : 'heart-off']" @click="handleClick"></i>
+  </button>
+  {{ state.countLikes }}
+</template>
+

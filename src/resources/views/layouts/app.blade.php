@@ -21,23 +21,20 @@
     {{-- <link href="/css/app.css" rel="stylesheet"> --}}
 
     {{-- CDN --}}
-    {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
-    {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 </head>
 <body>
     <div id="particles-js"></div>
-    <div id="app" class="">
+    <div id="app">
         @include('components.nav')
         <div id='wrapper' class="h-fit max-w-5xl py-6 mx-auto bg-purple-500 bg-opacity-50">
             @yield('content')
         </div>
         @include('components.footer')
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </div>
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="{{ mix('js/particle.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

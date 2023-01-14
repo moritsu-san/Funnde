@@ -5,7 +5,7 @@ import { getPosts } from './test.js';
 
 getPosts();
 
-const app = createApp({})
+const app = createApp({});
 
 app.component('like-component', LikeComponent);
-app.mount('#app')
+app.mount('#app');
