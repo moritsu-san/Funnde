@@ -43,6 +43,21 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    //authenticatedをオーバーライドして$userをレスポンス
+    protected function authenticated(Request $request, $user)
+    {
+        return $user;
+    }
+
+    //loggedOutをオーバーライドしてステータスコード200をレスポンス
+    protected function loggedOut(Request $request)
+    {
+        // セッションを再生成する
+        $request->session()->regenerate();
+
+        return response()->json();
+    }
+
     public function redirectToProvider(string $provider)
     {
         return Socialite::driver($provider)->redirect();

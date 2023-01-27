@@ -16,7 +16,7 @@ class AnswerController extends Controller
 
     public function __construct(AnswerService $answer_service)
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['isLiked', 'countLikes']);
         $this->answer_service = $answer_service;
     }
 
@@ -81,6 +81,18 @@ class AnswerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function isLiked(Answer $answer)
+    {
+        $isLiked = $answer->isLikedBy(Auth::user());
+        return response()->json($isLiked);
+    }
+
+    public function countLikes(Answer $answer)
+    {
+        $countLikes = $answer->count_likes;
+        return response()->json($countLikes);
     }
 
     public function like(Request $request, Answer $answer)

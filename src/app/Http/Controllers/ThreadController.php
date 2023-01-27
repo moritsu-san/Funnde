@@ -25,7 +25,7 @@ class ThreadController extends Controller
         SlackNotificationService $slack_notification_service
     )
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except(['index', 'shosai']);
         $this->authorizeResource(Thread::class, 'thread');
         $this->thread_service = $thread_service;
         $this->thread_repository = $thread_repository;
@@ -37,12 +37,11 @@ class ThreadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index()
-    // {
-    //     $threads = $this->thread_service->getThreadsWithAnswers(10);
-    //     // dd($threads);
-    //     return view('threads.index', compact('threads'));
-    // }
+    public function index()
+    {
+        $threads = $this->thread_service->getThreadsWithAnswers(10);
+        return response()->json($threads);                                                                 
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -60,16 +59,17 @@ class ThreadController extends Controller
             $thread = $this->thread_service->createNewThread(Auth::id(), $data);
             $this->slack_notification_service->send(Auth::user()->name. 'がお題として"' . $request->body . '"を投稿しました。');
         } catch (Throwable $error) {
-            return redirect()->route('threads.show', $thread->id)->with('error', 'お題の投稿に失敗しました...');
+            return response()->json();
         }
 
-        return redirect()->route('threads.show', $thread->id)->with('success', 'お題を投稿しました!');
+        return response()->json();
     }
 
-    public function create()
-    {
-        return view('threads.create');
-    }
+    /*今は使わないのでコメントアウト*/
+    // public function create()
+    // {
+    //     return view('threads.create');
+    // }
 
 
     /**
@@ -78,11 +78,18 @@ class ThreadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Thread $thread)
-    {
-        $thread = $this->thread_service->getThreadWithAnswers($thread->id);
+    // public function show()
+    // {
+    //     // $thread = $this->thread_service->getThreadWithAnswers($id);
 
-        return view('threads.show', compact('thread'));
+    //     // return $thread ?? abort(404);
+    // }
+
+    public function shosai(String $id)
+    {
+        $thread = $this->thread_service->getThreadWithAnswers($id);
+
+        return $thread ?? abort(404);
     }
 
     /**

@@ -1,11 +1,21 @@
-require('./bootstrap');
-import { createApp } from 'vue';
-import LikeComponent from './components/LikeComponent.vue';
-import { getPosts } from './test.js';
+require('./bootstrap')
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import router from './router'
+import App from './App.vue'
+import { useStoreAuth } from './stores/auth'
+import Axios from 'axios'
 
-getPosts();
+Axios.defaults.baseURL = 'http://localhost:3000'
 
-const app = createApp({});
+const startApp = async () => {
+    const pinia = createPinia()
+    const { currentUser } = useStoreAuth(pinia)
+    const app = createApp(App)
+    app.use(pinia)
+    app.use(router)
+    app.mount('#app')
+    await currentUser()
+}
 
-app.component('like-component', LikeComponent);
-app.mount('#app');
+startApp()

@@ -111,4 +111,10 @@ class RegisterController extends Controller
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());
     }
+
+    //$userをレスポンス
+    protected function registered(Request $request, $user)
+    {
+        return $user;
+    }
 }
