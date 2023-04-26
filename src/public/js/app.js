@@ -20758,30 +20758,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
 
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createWebHistory)(),
+
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createWebHistory)(),
   routes: [{
     path: '/',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_pages_Answers_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Answers.vue */ "./resources/js/pages/Answers.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_pages_answer_Answer_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/answer/Answer.vue */ "./resources/js/pages/answer/Answer.vue"));
     }
   }, {
-    path: '/answer/:mode',
+    path: '/answer',
+    name: 'answer',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_pages_Answers_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Answers.vue */ "./resources/js/pages/Answers.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_pages_answer_Answer_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/answer/Answer.vue */ "./resources/js/pages/answer/Answer.vue"));
     },
-    name: 'answer'
+    children: [{
+      path: 'recent',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_pages_answer_Recent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/answer/Recent.vue */ "./resources/js/pages/answer/Recent.vue"));
+      }
+    }, {
+      path: 'popular',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_pages_answer_Popular_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/answer/Popular.vue */ "./resources/js/pages/answer/Popular.vue"));
+      }
+    }]
   }, {
-    path: '/odai/recent',
+    path: '/odai',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_pages_Odai_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Odai.vue */ "./resources/js/pages/Odai.vue"));
-    }
+      return __webpack_require__.e(/*! import() */ "resources_js_pages_odai_Odai_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/odai/Odai.vue */ "./resources/js/pages/odai/Odai.vue"));
+    },
+    children: [{
+      path: 'recent',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_pages_odai_Recent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/odai/Recent.vue */ "./resources/js/pages/odai/Recent.vue"));
+      }
+    }, {
+      path: 'papular',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ "resources_js_pages_odai_Popular_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/odai/Popular.vue */ "./resources/js/pages/odai/Popular.vue"));
+      }
+    }]
   }, {
     path: '/MC/recent',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_pages_Mc_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Mc.vue */ "./resources/js/pages/Mc.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_pages_mc_Mc_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/mc/Mc.vue */ "./resources/js/pages/mc/Mc.vue"));
     }
   }, {
     path: '/login',
@@ -20794,11 +20818,6 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
     name: 'register',
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_pages_Register_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Register.vue */ "./resources/js/pages/Register.vue"));
-    }
-  }, {
-    path: '/show',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_pages_Show_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Show.vue */ "./resources/js/pages/Show.vue"));
     }
   }, {
     path: '/threads/:id',
@@ -45122,7 +45141,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_Answers_vue":1,"resources_js_pages_Odai_vue":1,"resources_js_pages_Mc_vue":1,"resources_js_pages_Login_vue":1,"resources_js_pages_Register_vue":1,"resources_js_pages_Show_vue":1,"resources_js_pages_ThreadDetail_vue":1,"resources_js_pages_errors_System_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_answer_Answer_vue":1,"resources_js_pages_answer_Recent_vue":1,"resources_js_pages_answer_Popular_vue":1,"resources_js_pages_odai_Odai_vue":1,"resources_js_pages_odai_Recent_vue":1,"resources_js_pages_odai_Popular_vue":1,"resources_js_pages_mc_Mc_vue":1,"resources_js_pages_Login_vue":1,"resources_js_pages_Register_vue":1,"resources_js_pages_ThreadDetail_vue":1,"resources_js_pages_errors_System_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

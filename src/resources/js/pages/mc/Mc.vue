@@ -1,9 +1,8 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import OdaiList from '../components/OdaiList.vue'
+import OdaiList from '../../components/OdaiList.vue'
 
-console.log('hello')
 const route = useRoute()
 
 const mode = ref('recent')
@@ -11,8 +10,6 @@ const mode = ref('recent')
 watch(route, () => {
     mode.value  = route.params.mode
 })
-
-console.log('hello')
 </script>
 
 <template>

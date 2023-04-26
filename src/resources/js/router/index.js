@@ -1,3 +1,4 @@
+import { resolveComponent } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -5,20 +6,41 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('../pages/Answers.vue')
+      component: () => import('../pages/answer/Answer.vue')
     },
     {
-      path: '/answer/:mode',
-      component: () => import('../pages/Answers.vue'),
-      name: 'answer'
+      path: '/answer',
+      name: 'answer',
+      component: () => import('../pages/answer/Answer.vue'),
+      children: [
+        {
+          path: 'recent',
+          component: () => import('../pages/answer/Recent.vue'),
+        },
+        {
+          path: 'popular',
+          component: () => import('../pages/answer/Popular.vue'),
+        },
+      ]
+      
     },
     {
-      path: '/odai/recent',
-      component: () => import('../pages/Odai.vue')
+      path: '/odai',
+      component: () => import('../pages/odai/Odai.vue'),
+      children: [
+        {
+          path: 'recent',
+          component: () => import('../pages/odai/Recent.vue'),
+        },
+        {
+          path: 'papular',
+          component: () => import('../pages/odai/Popular.vue'),
+        },
+      ]
     },
     {
       path: '/MC/recent',
-      component: () => import('../pages/Mc.vue')
+      component: () => import('../pages/mc/Mc.vue')
     },
     {
       path: '/login',
@@ -29,10 +51,6 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: () => import('../pages/Register.vue')
-    },
-    {
-      path: '/show',
-      component: () => import('../pages/Show.vue')
     },
     {
       path: '/threads/:id',
