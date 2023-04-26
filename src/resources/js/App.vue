@@ -11,7 +11,6 @@ const route = useRoute()
 const router = useRouter()
 const url = useStoreUrl()
 const e = useStoreError()
-
 const code = computed(() => e.code)
 
 watch(route, () => {

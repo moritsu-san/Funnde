@@ -17,11 +17,12 @@
     <link href="{{ mix('css/style.css') }}" rel="stylesheet">
     {{-- <link href="/css/app.css" rel="stylesheet"> --}}
 
-    {{-- CDN --}}
+    <!-- CDN -->
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
     {{-- <link href="https://cdn.jsdelivr.net/npm/vuetify@3.1.1/dist/vuetify.min.css" rel="stylesheet"> --}}
 </head>
 <body>
+    <!-- particles-js -->
     <div id="particles-js"></div>
     <div id="app">
     </div>

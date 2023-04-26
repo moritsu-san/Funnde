@@ -10,6 +10,8 @@ const mode = ref('recent')
 watch(route, () => {
     mode.value  = route.params.mode
 })
+
+console.log(mode.value)
 </script>
 
 <template>

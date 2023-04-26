@@ -1,12 +1,12 @@
 require('./bootstrap')
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import Axios from 'axios'
 import router from './router'
 import App from './App.vue'
 import { useStoreAuth } from './stores/auth'
-import Axios from 'axios'
 
-Axios.defaults.baseURL = 'http://localhost:3000'
+Axios.defaults.baseURL = 'http://localhost:3000/'
 
 const startApp = async () => {
     const pinia = createPinia()
