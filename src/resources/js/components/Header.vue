@@ -1,16 +1,25 @@
 <script setup>
 import { useStoreAuth } from '../stores/auth'
+import { useStoreReload } from '../stores/reload'
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import NavMenu from './NavMenu.vue'
 import OdaiCreate from './OdaiCreate.vue'
 
 const router = useRouter()
+const route = useRoute()
 const auth = useStoreAuth()
+const reload = useStoreReload()
 
 const isLogin = computed(() => auth.check)
 const username = computed(() => auth.username)
 const useremail= computed(() => auth.useremail)
+
+const callReload = () => {
+    if(route.fullPath == "/answer/recent") {
+        reload.setStatus(!reload.status) 
+    }
+}
 
 const logout = async () => {
     await auth.logout()
@@ -19,13 +28,12 @@ const logout = async () => {
         router.push('/login')
     }
 }
-
 </script>
 
 <template>
     <nav class="bg-black border-gray-200 px-2 dark:bg-gray-900">
         <div class="max-w-5xl flex flex-wrap items-center mx-auto">
-            <RouterLink to="/answer/recent" class="navbar-brand my-2 text-xl text-white hover:text-gray-300 transition-colors">
+            <RouterLink @click="callReload" to="/answer/recent" class="navbar-brand my-2 text-xl text-white hover:text-gray-300 transition-colors">
                 <i class="fa-solid fa-microphone-lines"></i>
                 踏んで
             </RouterLink>

@@ -1,4 +1,3 @@
-import { resolveComponent } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -6,7 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('../pages/answer/Answer.vue')
+      component: () => import('../pages/answer/Answer.vue'),
     },
     {
       path: '/answer',
@@ -33,7 +32,7 @@ const router = createRouter({
           component: () => import('../pages/odai/Recent.vue'),
         },
         {
-          path: 'papular',
+          path: 'popular',
           component: () => import('../pages/odai/Popular.vue'),
         },
       ]

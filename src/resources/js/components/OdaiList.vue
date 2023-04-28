@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import OdaiCard from './OdaiCard.vue'
 import { OK } from '../util'
 import { useStoreAuth } from '../stores/auth'
+import { useStoreReload } from '../stores/reload'
 
 const { mode } = defineProps({
     mode: {
@@ -14,6 +15,7 @@ const { mode } = defineProps({
 
 const route = useRoute()
 const auth = useStoreAuth()
+const reload = useStoreReload()
 
 const odais = ref([])
 
@@ -31,7 +33,11 @@ const fetchOdais = async () => {
     }
 }
 
-watch(route, () => {
+defineExpose({
+    fetchOdais,
+});
+
+watch(reload, () => {
     fetchOdais()
 },
 { immediate: true }
