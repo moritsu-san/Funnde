@@ -20159,9 +20159,9 @@ __webpack_require__.r(__webpack_exports__);
       var linkNameInitial = linkName.split('/')[1];
       var pathInitial = url.pathInitial;
       if (linkNameInitial === pathInitial) {
-        return "bg-purple-500 block cursor-pointer px-2 py-3 rounded text-white hover:text-gray-300 transition-colors text-sm md:mr-6 md:rounded-none";
+        return "block border-b-4 border-lime-700 cursor-pointer mt-1 px-6 py-3 rounded text-black transition-colors text-sm md:mr-6 md:rounded-none";
       } else {
-        return "bg-black block cursor-pointer px-2 py-3 rounded text-white hover:text-gray-300 transition-colors text-sm md:mr-6 md:rounded-none";
+        return "block border-b-4 border-white cursor-pointer mt-1.5 px-6 pt-3 pb-2.5 rounded text-gray-500 hover:text-black text-sm md:mr-6 md:rounded-none";
       }
     });
     var callReload = function callReload() {
@@ -20329,7 +20329,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = {
   id: "wrapper",
-  "class": "h-fit max-w-5xl py-6 mx-auto bg-purple-500 bg-opacity-50"
+  "class": "h-fit max-w-5xl py-6 mx-auto"
 };
 var _hoisted_2 = {
   id: "container",
@@ -20337,7 +20337,7 @@ var _hoisted_2 = {
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_RouterView = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("RouterView");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Header"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Message"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_RouterView)])])], 64 /* STABLE_FRAGMENT */);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Header"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_RouterView)])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -20356,7 +20356,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-black border-gray-200 px-2 dark:bg-gray-900"
+  "class": "bg-white border-b-2 border-gray-200 px-2 dark:bg-gray-900"
 };
 var _hoisted_2 = {
   "class": "max-w-5xl flex flex-wrap items-center mx-auto"
@@ -20383,10 +20383,10 @@ var _hoisted_7 = {
   "data-dropdown-placement": "bottom"
 };
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fa-solid fa-circle-user fa-lg mr-1 rounded-full text-white hover:text-gray-300 transition-colors"
+  "class": "fa-solid fa-circle-user fa-xl mr-1 rounded-full text-gray-500 hover:text-black transition-colors"
 }, null, -1 /* HOISTED */);
 var _hoisted_9 = {
-  "class": "text-white hover:text-gray-300 transition-colors"
+  "class": "text-gray-500 hover:text-black transition-colors"
 };
 var _hoisted_10 = {
   "class": "z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600",
@@ -20408,7 +20408,7 @@ var _hoisted_14 = {
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "data-collapse-toggle": "navbar-cta",
   type: "button",
-  "class": "inline-flex items-center text-sm text-white rounded-lg md:hidden focus:outline-none focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600",
+  "class": "inline-flex items-center text-sm text-black rounded-lg md:hidden focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600",
   "aria-controls": "mobile-menu-2",
   "aria-expanded": "false"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
@@ -20429,14 +20429,14 @@ var _hoisted_16 = {
   id: "navbar-cta"
 };
 var _hoisted_17 = {
-  "class": "p-1 mb-1 w-full flex flex-col border border-gray-100 rounded-lg bg-black md:flex-row md:p-0 md:my-0 md:text-sm md:font-medium md:border-0"
+  "class": "p-1 mb-1 w-full flex flex-col border border-gray-100 md:flex-row md:p-0 md:my-0 md:text-sm md:font-medium md:border-0"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_RouterLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("RouterLink");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_RouterLink, {
     onClick: $setup.callReload,
     to: "/answer/recent",
-    "class": "navbar-brand my-2 text-xl text-white hover:text-gray-300 transition-colors"
+    "class": "navbar-brand my-2 text-xl text-lime-700 hover:text-lime-800 transition-colors"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 踏んで ")];
@@ -20444,7 +20444,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_RouterLink, {
     to: "/login",
-    "class": "block cursor-pointer py-2 px-2 mr-2 text-xs bg-orange-500 hover:bg-orange-600 text-white rounded hover:text-gray-300 transition-colors md:px-4 md:text-base"
+    "class": "block cursor-pointer py-2 px-2 mr-2 text-xs bg-lime-700 hover:bg-lime-800 text-white rounded hover:text-gray-300 transition-colors md:px-4 md:text-base"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("ログイン")];
@@ -20452,7 +20452,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_RouterLink, {
     to: "/register",
-    "class": "block cursor-pointer py-2 px-2 mr-4 text-xs bg-orange-500 hover:bg-orange-600 text-white rounded hover:text-gray-300 transition-colors md:px-4 md:text-base md:mr-0"
+    "class": "block cursor-pointer py-2 px-2 mr-4 text-xs bg-lime-700 hover:bg-lime-800 text-white rounded hover:text-gray-300 transition-colors md:px-4 md:text-base md:mr-0"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("新規登録")];
@@ -20460,7 +20460,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1 /* STABLE */
   })])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$setup.isLogin]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" user menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.username), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" user menu dropdown "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.username), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.useremail), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_RouterLink, {
     to: "#",
-    "class": "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+    "class": "block px-4 py-2 text-sm text-gray-700 hover:font-bold dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("マイページ")];
@@ -20468,14 +20468,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_RouterLink, {
     to: "#",
-    "class": "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+    "class": "block px-4 py-2 text-sm text-gray-700 hover:font-bold dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("設定")];
     }),
     _: 1 /* STABLE */
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
+    "class": "block px-4 py-2 m-0 text-sm text-gray-700 hover:font-bold dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
     onClick: $setup.logout
   }, "ログアウト", 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.isLogin]])])])])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.isLogin]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" humburger menu "), _hoisted_15]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" nav menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavMenu"], {
     name: "アンサー",
@@ -20602,11 +20602,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "block cursor-pointer px-2 py-3 mr-6 text-white rounded hover:text-gray-300 transition-colors text-sm",
+  "class": "bg-lime-700 block cursor-pointer mt-1.5 px-1.5 pt-2.5 pb-2.5 mr-6 text-white rounded-full hover:text-gray-200 transition-colors text-sm",
   "data-modal-toggle": "thread-create-modal"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" +"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-pen mr-1"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" お題を投稿 ")], -1 /* HOISTED */);
+})], -1 /* HOISTED */);
 var _hoisted_2 = {
   id: "thread-create-modal",
   tabindex: "-1",
@@ -20647,7 +20647,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, "内容", -1 /* HOISTED */);
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "submit",
-  "class": "w-full text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+  "class": "w-full text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 }, "送信", -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -20663,7 +20663,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "body",
     id: "thread",
     type: "text",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.errorMessage.body ? 'ring-1 ring-red-500' : '', "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"]),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$setup.errorMessage.body ? 'ring-1 ring-red-500' : '', "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"]),
     placeholder: "お題を入力",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $setup.odai.body = $event;
@@ -20805,9 +20805,7 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_0__.createWebHistory)(),
   routes: [{
     path: '/',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_pages_answer_Answer_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/answer/Answer.vue */ "./resources/js/pages/answer/Answer.vue"));
-    }
+    redirect: 'answer/recent'
   }, {
     path: '/answer',
     name: 'answer',

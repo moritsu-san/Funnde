@@ -18,7 +18,7 @@ const callReload = () => {
 <template>
     <div class="content-menu">
         <ul class="flex">
-            <li class="bg-white px-2 mr-3 text-gray-600 rounded-t font-bold">
+            <li class="bg-white px-2 ml-8 mr-3 text-gray-600 rounded-t font-bold">
                 <RouterLink @click.preventDefault="callReload" to="/answer/recent" class="text-bold" target="_self">新着</RouterLink>
             </li>
             <li class="px-2 mr-3 text-gray-600 rounded-t font-bold">

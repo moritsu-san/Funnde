@@ -16,7 +16,7 @@ const reload = () => {
 <template>
     <div class="content-menu">
         <ul class="flex">
-            <li class="px-2 mr-3 text-gray-600 rounded-t font-bold">
+            <li class="px-2 ml-8 mr-3 text-gray-600 rounded-t font-bold">
                 <RouterLink to="/answer/recent" class="text-bold" target="_self">新着</RouterLink>
             </li>
             <li class="bg-white px-2 mr-3 text-gray-600 rounded-t font-bold">

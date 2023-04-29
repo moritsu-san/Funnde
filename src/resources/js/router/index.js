@@ -5,7 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('../pages/answer/Answer.vue'),
+      redirect: 'answer/recent',
     },
     {
       path: '/answer',

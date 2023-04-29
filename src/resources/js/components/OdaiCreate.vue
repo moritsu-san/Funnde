@@ -43,9 +43,8 @@
 
 <template>
     <!-- Modal toggle -->
-    <a class="block cursor-pointer px-2 py-3 mr-6 text-white rounded hover:text-gray-300 transition-colors text-sm" data-modal-toggle="thread-create-modal">
-        <i class="fas fa-pen mr-1"></i>
-        お題を投稿
+    <a class="bg-lime-700 block cursor-pointer mt-1.5 px-1.5 pt-2.5 pb-2.5 mr-6 text-white rounded-full hover:text-gray-200 transition-colors text-sm" data-modal-toggle="thread-create-modal">
+        +<i class="fas fa-pen mr-1"></i>
     </a>
 
     <!-- Main modal -->
@@ -62,12 +61,12 @@
                     <form class="space-y-6" @submit.prevent="submit">
                         <div>
                             <label for="thread" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">内容</label>
-                            <input name="body" id="thread" type="text" :class="(errorMessage.body) ? 'ring-1 ring-red-500' : ''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="お題を入力" v-model="odai.body">
+                            <input name="body" id="thread" type="text" :class="(errorMessage.body) ? 'ring-1 ring-red-500' : ''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="お題を入力" v-model="odai.body">
                             <span v-for="error in errorMessage.body" v-show="errorMessage.body" :key="error" class="text-red-500 text-sm" role="alert">
                                 <strong>{{ error }}</strong>
                             </span>
                         </div>
-                        <button type="submit" class="w-full text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">送信</button>
+                        <button type="submit" class="w-full text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">送信</button>
                     </form>
                 </div>
             </div>

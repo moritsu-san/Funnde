@@ -24,9 +24,9 @@ const isActiveClass = computed(() => {
   const pathInitial = url.pathInitial
 
   if(linkNameInitial === pathInitial) {
-    return "bg-purple-500 block cursor-pointer px-2 py-3 rounded text-white hover:text-gray-300 transition-colors text-sm md:mr-6 md:rounded-none"
+    return "block border-b-4 border-lime-700 cursor-pointer mt-1 px-6 py-3 rounded text-black transition-colors text-sm md:mr-6 md:rounded-none"
   } else {
-    return "bg-black block cursor-pointer px-2 py-3 rounded text-white hover:text-gray-300 transition-colors text-sm md:mr-6 md:rounded-none"
+    return "block border-b-4 border-white cursor-pointer mt-1.5 px-6 pt-3 pb-2.5 rounded text-gray-500 hover:text-black text-sm md:mr-6 md:rounded-none"
   }
 })
 

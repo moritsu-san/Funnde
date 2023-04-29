@@ -46,7 +46,7 @@ watch(reload, () => {
 </script>
 
 <template>
-    <div id="content" :class="(mode === 'recent') ? 'rounded-tr rounded-br rounded-bl' : 'rounded'" class="bg-white p-4">
+    <div id="content" :class="(mode === 'recent') ? 'rounded-tr rounded-br rounded-bl' : 'rounded'" class="bg-white py-2 px-4">
         <OdaiCard v-for="odai in odais" :key="odai.id" :item="odai"/>
     </div>
 </template>

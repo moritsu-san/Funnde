@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title></title>
+    <title>Home / 踏んで</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,16 +19,11 @@
 
     <!-- CDN -->
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
-    {{-- <link href="https://cdn.jsdelivr.net/npm/vuetify@3.1.1/dist/vuetify.min.css" rel="stylesheet"> --}}
 </head>
 <body>
-    <!-- particles-js -->
-    <div id="particles-js"></div>
     <div id="app">
     </div>
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/vuetify@3.1.1/dist/vuetify.min.js"></script> --}}
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="{{ mix('js/particle.js') }}"></script>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>

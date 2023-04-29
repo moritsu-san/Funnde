@@ -32,9 +32,8 @@ watch(code, (code) => {
 
 <template>
     <Header/>
-    <div id='wrapper' class="h-fit max-w-5xl py-6 mx-auto bg-purple-500 bg-opacity-50">
+    <div id='wrapper' class="h-fit max-w-5xl py-6 mx-auto">
         <div  id="container" class="container mx-auto px-4">
-            <Message/>
             <RouterView/>
         </div>
     </div>
