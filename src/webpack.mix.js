@@ -12,21 +12,37 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
-    .postCss('resources/css/app.css', 'public/css', [
-        // require('postcss-import'),
-        require('tailwindcss'),
-        // require('autoprefixer'),
-    ])
-    // .sass('resources/sass/app.scss', 'public/css')
-    .browserSync({
-        files: ['./resources/views/**/*', './public/**/*'],
-        proxy: {
-            target: 'web'
-        },
-        open: true,
-        reloadOnRestart: true,
-    })
-    .version();
+// mix.js('resources/js/app.js', 'public/js').vue()
+//     .postCss('resources/css/app.css', 'public/css', [
+//         // require('postcss-import'),
+//         require('tailwindcss'),
+//         // require('autoprefixer'),
+//     ])
+//     // .sass('resources/sass/app.scss', 'public/css')
+//     .browserSync({
+//         files: ['./resources/views/**/*', './public/**/*'],
+//         proxy: {
+//             target: 'web'
+//         },
+//         open: true,
+//         reloadOnRestart: true,
+//     })
+//     .version();
+
+mix.ts('resources/ts/app.tsx', 'public/js')
+.postCss('resources/css/app.css', 'public/css', [
+    // require('postcss-import'),
+    require('tailwindcss'),
+    // require('autoprefixer'),
+])
+.browserSync({
+    files: ['./resources/views/**/*', './public/**/*'],
+    proxy: {
+        target: 'web'
+    },
+    open: true,
+    reloadOnRestart: true,
+})
+.version();
 
     

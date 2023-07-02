@@ -43,26 +43,47 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    //authenticatedをオーバーライドして$userをレスポンス
+    /**
+     * ログインAPI レスポンスカスタマイズ用メソッド
+     *
+     * @param Illuminate\Http\Request $request
+     * @param \App\User $user
+     * @return \App\User
+     */
     protected function authenticated(Request $request, $user)
     {
         return $user;
     }
 
-    //loggedOutをオーバーライドしてステータスコード200をレスポンス
+    /**
+     * ログアウトAPI レスポンスカスタマイズ用メソッド
+     *
+     * @param Illuminate\Http\Request $request
+     * @return Illuminate\Http\Response
+     */
     protected function loggedOut(Request $request)
     {
-        // セッションを再生成する
-        $request->session()->regenerate();
-
-        return response()->json();
+        return response(null, 204);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param string $provider
+     * @return void
+     */
     public function redirectToProvider(string $provider)
     {
         return Socialite::driver($provider)->redirect();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @param string $provider
+     * @return void
+     */
     public function handleProviderCallback(Request $request, string $provider)
     {
         $providerUser = Socialite::driver($provider)->stateless()->user();

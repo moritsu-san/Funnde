@@ -1,14 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Answer;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;       
 use App\Http\Controllers\ThreadController;       
 use App\Http\Controllers\AnswerController;       
-use App\Http\Controllers\Api\PostController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\OAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +24,20 @@ use Illuminate\Support\Facades\Auth;
 //     return $request->user();
 // });
 
+/**
+ * 認証
+ */
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/login/{provider}', [OAuthController::class, 'getProviderOAuthURL'])
+            ->where('provider', 'github')->name('oauth.request');
+Route::post('/login/{provider}/callback', [OAuthController::class, 'handleProviderCallback'])
+            ->where('provider', 'github')->name('oauth.callback');
+Route::get('/users/me', [UserController::class, 'show'])->name('user');
+
 
 Route::post('/postOdai', [ThreadController::class, 'store'])->name('postOdai');
-
-Route::get('/user', fn() => Auth::user())->name('user');
 
 Route::get('/getOdais', [ThreadController::class, 'index']);
 

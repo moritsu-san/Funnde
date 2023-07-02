@@ -7,24 +7,14 @@
 
     <title>Home / 踏んで</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/style.css') }}" rel="stylesheet">
     {{-- <link href="/css/app.css" rel="stylesheet"> --}}
-
-    <!-- CDN -->
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
 </head>
 <body>
     <div id="app">
     </div>
-    <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
-    <script src="{{ mix('js/particle.js') }}"></script>
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
