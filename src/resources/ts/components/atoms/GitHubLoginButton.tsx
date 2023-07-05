@@ -16,13 +16,16 @@ const GitHubLoginButton: FC<Props> = ({ handleSocialLoginRequest }) => (
             color: "#fff",
             backgroundColor: "#24292e",
             textTransform: "none",
+            '&:hover': {
+                backgroundColor: '#24292e'
+            }
         }}
         onClick={(e) => {
             e.preventDefault();
             handleSocialLoginRequest("github");
         }}
     >
-        Login with GitHub
+        GitHubでログイン
     </Button>
 );
 

@@ -193,7 +193,7 @@ const Header: FC<Props> = ({ userName, userEmail, handleLogout }) => {
                             onClose={handleCloseUserMenu}
                         >
                             {userName && (
-                                <>
+                                <div>
                                     <Box sx={{ display: "flex", p: 1.5 }}>
                                         <AccountCircleIcon
                                             sx={{ fontSize: "2rem", mr: 0.5 }}
@@ -214,7 +214,7 @@ const Header: FC<Props> = ({ userName, userEmail, handleLogout }) => {
                                         </Box>
                                     </Box>
                                     <Divider />
-                                </>
+                                </div>
                             )}
 
                             {settings.map((setting) => (

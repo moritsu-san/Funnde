@@ -69,6 +69,7 @@ const EnhancedLogin = () => {
             resEmailErrors={resEmailErrors}
             handleLogin={handleLogin}
             statusCode={statusCode}
+            socialLoginStatusCode={socialLoginStatusCode}
             isLoading={isLoading}
             handleSocialLoginRequest={handleSocialLoginRequest}
         />

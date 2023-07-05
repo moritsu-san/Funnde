@@ -6,7 +6,7 @@ type Props = {
     statusCode: number | undefined;
 };
 
-const LoginAlert: FC<Props> = ({ statusCode }) => (
+const SocialLoginAlert: FC<Props> = ({ statusCode }) => (
     <>
         {statusCode === INTERNAL_SERVER_ERROR || statusCode === UNKNOWN_STATUS && (
             <Alert severity="error" sx={{ mt: 2 }}>
@@ -17,4 +17,4 @@ const LoginAlert: FC<Props> = ({ statusCode }) => (
     </>
 );
 
-export default LoginAlert;
+export default SocialLoginAlert;

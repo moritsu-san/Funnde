@@ -5,7 +5,7 @@
  */
 require("./bootstrap");
 
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import {
     BrowserRouter as Router,
     Redirect,
@@ -31,7 +31,7 @@ import useGetUserQuery from "./hooks/user/useGetUserQuery";
 import Loading from "./components/pages/Loading";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { FC, ReactNode } from "react";
-import { themeOptions } from "./assets/theme/ThemeOptions";
+import { themeOptions } from "./constants/themeOptions";
 import SocialLoginProgress from "./containers/pages/SocialLoginProgress";
 
 const client = new QueryClient();
@@ -111,7 +111,10 @@ const App = () => {
 
 if (document.getElementById("app")) {
     const theme = createTheme(themeOptions);
-    ReactDOM.render(
+    const root = ReactDOM.createRoot(
+        document.getElementById("app") as HTMLElement
+    );
+    root.render(
         <Router>
             <QueryClientProvider client={client}>
                 <ThemeProvider theme={theme}>
@@ -119,7 +122,6 @@ if (document.getElementById("app")) {
                     <App />
                 </ThemeProvider>
             </QueryClientProvider>
-        </Router>,
-        document.getElementById("app")
+        </Router>
     );
 }

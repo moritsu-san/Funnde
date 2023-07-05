@@ -14,7 +14,7 @@ import Container from "@mui/material/Container";
 import Copyright from "../atoms/Copyright";
 import LoginAlert from "../molecules/LoginAlert";
 import { INTERNAL_SERVER_ERROR } from "../../constants/statusCode";
-import { Backdrop, CircularProgress } from "@mui/material";
+import { Backdrop, CircularProgress, Divider } from "@mui/material";
 import {
     FieldErrors,
     SubmitHandler,
@@ -25,6 +25,7 @@ import { LoginForm } from "../../models/LoginForm";
 import { Provider } from "../../models/OAuth";
 import GitHubLoginButton from "../atoms/GitHubLoginButton";
 import Header from "../../containers/organisms/Header";
+import SocialLoginAlert from "../molecules/SocialLoginAlert";
 
 type Props = {
     register: UseFormRegister<LoginForm>;
@@ -33,7 +34,8 @@ type Props = {
     errors: FieldErrors<LoginForm>;
     resEmailErrors?: Array<string>;
     handleLogin: SubmitHandler<LoginForm>;
-    statusCode: number | undefined;
+    statusCode?: number | undefined;
+    socialLoginStatusCode?: number;
     isLoading: boolean;
     handleSocialLoginRequest: (provider: Provider) => void;
 };
@@ -46,6 +48,7 @@ const Login: FC<Props> = ({
     resEmailErrors,
     handleLogin,
     statusCode,
+    socialLoginStatusCode,
     isLoading,
     handleSocialLoginRequest,
 }) => {
@@ -74,11 +77,9 @@ const Login: FC<Props> = ({
                                 resEmailErrors={resEmailErrors}
                             />
                         ))}
-                    <Box sx={{ mt: 2 }}>
-                        <GitHubLoginButton
-                            handleSocialLoginRequest={handleSocialLoginRequest}
-                        />
-                    </Box>
+                    {socialLoginStatusCode && (
+                        <SocialLoginAlert statusCode={socialLoginStatusCode} />
+                    )}
                     <Box
                         component="form"
                         onSubmit={handleSubmit(handleLogin)}
@@ -101,7 +102,7 @@ const Login: FC<Props> = ({
                         <TextField
                             margin="normal"
                             fullWidth
-                            color={errors.email && "error"}
+                            color={errors.password && "error"}
                             label="パスワード"
                             type="password"
                             id="password"
@@ -126,7 +127,7 @@ const Login: FC<Props> = ({
                             type="submit"
                             fullWidth
                             variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
+                            sx={{ mt: 2, mb: 2 }}
                         >
                             ログイン
                         </Button>
@@ -143,13 +144,21 @@ const Login: FC<Props> = ({
                             <Grid item>
                                 <Link
                                     component={RouterLink}
-                                    to="/"
+                                    to="/register"
                                     variant="body2"
                                 >
                                     {"アカウントを作成"}
                                 </Link>
                             </Grid>
                         </Grid>
+                        <Divider sx={{ mt: 2 }} />
+                        <Box sx={{ width: 1, mt: 2 }}>
+                            <GitHubLoginButton
+                                handleSocialLoginRequest={
+                                    handleSocialLoginRequest
+                                }
+                            />
+                        </Box>
                     </Box>
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
